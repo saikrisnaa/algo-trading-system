@@ -1,7 +1,7 @@
 import requests
 
-BOT_TOKEN = "8344390516:AAHU6j06DzVEu1jzOsBvzxvxKb-nwwgPgKQ" 
-CHAT_ID = "1587663363"
+BOT_TOKEN = "API_TOKEN" 
+CHAT_ID = "CHAT_ID"
 
 def send_telegram_message(message):
     """Sends a message to a specific Telegram chat."""
@@ -20,4 +20,5 @@ def send_telegram_message(message):
         response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
         print("Telegram alert sent successfully.")
     except requests.exceptions.RequestException as e:
+
         print(f"Failed to send Telegram alert: {e}")
