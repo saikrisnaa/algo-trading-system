@@ -5,9 +5,8 @@ This is a Python-based prototype of an algo trading system. The system connects 
 
 - Automated Data Ingestion: Fetches daily historical stock data for multiple NIFTY 50 tickers using the yfinance API.
 - Quantitative Trading Strategy: Implements a trading strategy based on a combination of two technical indicators:
-
-Buy Signal is generated when the 14-day RSI is below 30 (oversold).
-This signal is confirmed only when the 20-Day Moving Average crosses above the 50-Day Moving Average.
+  1. Buy Signal is generated when the 14-day RSI is below 30 (oversold).
+  2. This signal is confirmed only when the 20-Day Moving Average crosses above the 50-Day Moving Average.
 
 - Historical Backtesting: The system automatically backtests the trading strategy over the entire available history of the stocks to find all valid trade signals.
 
@@ -46,11 +45,11 @@ Follow these steps to set up and run the project locally.
 4. Configure Google Sheets API
    Follow the Google Cloud documentation to create a service account and enable the Google Sheets and Google Drive APIs.
 
-Download the JSON key file for the service account.
+- Download the JSON key file for the service account.
 
-Rename the file to credentials.json and place it in the root directory of this project.
+- Rename the file to credentials.json and place it in the root directory of this project.
 
-Share your target Google Sheet with the client_email found inside your credentials.json file.
+- Share your target Google Sheet with the client_email found inside your credentials.json file.
 
 5. Configure Telegram Bot
    Open the telegram_alerts.py file.
@@ -61,4 +60,5 @@ Replace the placeholder values for BOT_TOKEN and CHAT_ID with your own credentia
 
 - To run the application enter this command in terminal - python main.py
 - The script will now wait and execute automatically at the scheduled time, print the ML accuracy to the console, and update the Google Sheet.
+
 
