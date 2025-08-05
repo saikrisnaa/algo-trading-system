@@ -2,6 +2,18 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+def compute_rsi(series, period=14):
+    delta = series.diff()
+    gain = delta.where(delta > 0, 0)
+    loss = -delta.where(delta < 0, 0)
+
+    avg_gain = gain.rolling(window=period).mean()
+    avg_loss = loss.rolling(window=period).mean()
+
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
+
 def prepare_features(df):
     print("Initial DataFrame columns:", df.columns)
     print(f"Initial rows for ML: {df.shape}")
@@ -33,4 +45,5 @@ def ml_decision_tree(df):
     y_pred = clf.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
     return acc, clf
+
 
